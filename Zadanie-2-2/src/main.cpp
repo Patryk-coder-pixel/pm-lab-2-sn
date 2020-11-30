@@ -4,10 +4,10 @@ uint8_t ledState[] = {0xFF, 0x7E, 0x3C, 0x18, 0x00, 0x18, 0x3C, 0x7E};
 uint8_t *pLedState = ledState;
 bool state = true;
 
-void togglePinD13(bool state)
+void togglePinD13(bool *state)
 {
-  PORTB = (state << 5);
-  state = !(state);
+  PORTB = (*state << 5);
+  *state = !(*state);
 }
 
 void delay()
